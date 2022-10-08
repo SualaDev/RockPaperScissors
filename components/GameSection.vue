@@ -146,7 +146,7 @@
   background-color: white;
   color: #2a46c0;
   border-radius: 8px;
-  padding: 3.1% 15%;
+  padding: 3% 15%;
   font-size: 1.5rem;
 }
 .result-container{
