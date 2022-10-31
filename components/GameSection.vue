@@ -45,15 +45,8 @@
           'icon-rock.svg'
         ],
         userImage: '',
-        score: 0
-      }
-    },
-    computed: {
-      imageDisplay() {
-        const max = 2;
-        const min = 0;
-        const randomSelection = Math.floor(Math.random() * (max - min + 1)) + min;
-        return this.images[randomSelection]
+        score: 0,
+        imageDisplay: ''
       }
     },
     watch: {
@@ -66,6 +59,7 @@
         this.userPick = input
         this.userImage = this.images[imageIndex]
         this.calculateWinner()
+        this.calcuateGame()
      },
       calculateWinner () {
         this.loading = true
@@ -97,7 +91,12 @@
           }
           this.$emit('updateScore', this.score)
         }, 3000)
-      } 
+      },
+      calcuateGame(){
+        const newArray = [0,1,2]
+        const randomSelection = newArray[Math.floor(Math.random()*newArray.length)] 
+        this.imageDisplay= this.images[randomSelection]
+      }
     }
   }     
 </script>
@@ -106,39 +105,37 @@
 .container{
   position: relative;
 }
-
 .top_image {
-  width: 40%;
+  width: 35%;
   margin: 50px auto;
   display: flex;
   justify-content: space-between;
 }
-
 .bottom_image {
-  width: 30%;
+  /* width: 30%; */
   margin: auto;
   display: flex;
+  padding-top: 2rem;
   justify-content: center;
 }
-
 .paper{
   background-color: #FFF;
-  padding: 1rem;
-  border: 15px solid blue;
+  padding: 1.2rem;
+  border: 12px solid #4865f4;
   border-radius: 50%;
   cursor: pointer;
 }
 .scissors{
   background-color: #FFF;
-  padding: 1rem;
-  border: 15px solid rgba(255, 166, 0, 0.753);
+  padding: 1.2rem;
+  border: 12px solid #ec9e0e;
   border-radius: 50%;
   cursor: pointer;
 }
 .rock{
   background-color: #FFF;
-  padding: 1rem;
-  border: 15px solid rgba(255, 17, 0, 0.719);
+  padding: 1.2rem;
+  border: 12px solid #dc2e4e;
   border-radius: 50%;
   cursor: pointer;
 }
@@ -148,6 +145,7 @@
   border-radius: 8px;
   padding: 3.1% 15%;
   font-size: 1.5rem;
+  cursor: pointer;
 }
 .result-container{
   display: flex;
@@ -179,7 +177,6 @@
   -webkit-animation: pulse-animation 1.5s ease-out infinite;
           animation: pulse-animation 1.5s ease-out infinite;
 }
-
 @-webkit-keyframes pulse-animation {
   0% {
     -webkit-transform: scale(1);
@@ -196,7 +193,6 @@
     opacity: 0.5;
   }
 }
-
 @keyframes pulse-animation {
   0% {
     -webkit-transform: scale(1);
@@ -211,6 +207,31 @@
     -webkit-transform: scale(1);
             transform: scale(1);
     opacity: 0.5;
+  }
+}
+@media screen and (max-width: 1200px){
+  .top_image{
+    width: 42%;
+  }
+}
+@media screen and (max-width: 1050px){
+  .top_image{
+    width: 50%
+  }
+}
+@media screen and (max-width: 850px){
+  .top_image{
+    width: 58%;
+  }
+}
+@media screen and (max-width: 700px){
+  .top_image{
+    width: 80%;
+  }
+}
+@media screen and (max-width: 500px){
+  .top_image{
+    width: 90%;
   }
 }
 </style>
