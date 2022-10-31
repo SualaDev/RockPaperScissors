@@ -30,6 +30,7 @@
   justify-content: center;
   align-items: center;
   padding-top: 3rem;
+  padding-bottom: 3rem;
 }
 .header-title{
   color: #FFF;
@@ -42,16 +43,16 @@
   border-radius: 8px;
 }
 .inner-container{
-  padding: 3rem;
+  padding: 1.5rem;
   display: flex;
-  column-gap: 15rem;
+  column-gap: 22rem;
 }
 .header-score{
   display: flex;
   flex-direction: column;
   row-gap: 1rem;
   background-color: #f0f2f4;
-  padding: 2rem;
+  padding: 1.2rem;
   border-radius: 8px;
   text-align: center;
 }
@@ -64,5 +65,17 @@
   color: #3b4363;
   font-weight: 700;
   font-size: 1.5rem;
+}
+@media screen and (max-width: 700px){
+  .inner-container{
+    display: flex;
+    column-gap: 13rem;
+  }
+}
+@media screen and (max-width: 500px){
+  .inner-container{
+    display: flex;
+    column-gap: 8rem;
+  }
 }
 </style>
