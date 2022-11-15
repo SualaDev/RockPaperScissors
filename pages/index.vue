@@ -1,7 +1,9 @@
 <template>
-  <div class="container">
-    <Header :score="score" />
-    <GameSection @updateScore="onScoreUpdate" />
+  <div class="main-container">
+    <div class="container">
+      <Header :score="score" />
+      <GameSection @updateScore="onScoreUpdate" />
+    </div>
   </div>
 </template>
 
@@ -21,11 +23,13 @@ export default {
 }
 </script>
 <style scoped>
-.container{
+.main-container{
   background: radial-gradient(circle, #1f3756 50%, #141539);
-  min-height: 100vh;
-  position: relative;
+}
+.container{
   max-width: 1400px;
   margin: 0 auto;
+  min-height: 100vh;
+  position: relative;
 }
 </style>
